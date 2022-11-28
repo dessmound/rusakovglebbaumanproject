@@ -16,7 +16,7 @@ Case 3: Процесс электронно-лучевой сварки
 
 Файл minmaxscaler.joblib необходим для работы веб приложения (входные данные на сайте нормализуются, так как модели были обучены на нормализованных данных)
 
-Веб приложение было развернуто на Heroku: https://rusakovglebbaumanproject.heroku.com/
+Веб приложение было развернуто на Heroku: https://rusakovglebbaumanproject.herokuapp.com/
 Но Heroku прекращает возможность бесплатного развертывания :(\
 Также веб приложение развернуто на платформе Render: https://baumanprojectrusakov.onrender.com/
 
