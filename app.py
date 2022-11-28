@@ -17,10 +17,11 @@ def main():
         with open('DecisionTreeRegressor.pkl', 'rb+') as f:
             loaded_model1 = pickle.load(f)
 
-            IW = float(flask.request.form['IW'])
-            IF = float(flask.request.form['IF'])
-            VW = float(flask.request.form['VW'])
-            FP = float(flask.request.form['FP'])
+            IW = float(flask.request.form['IW'].replace(',','.'))
+            IF = float(flask.request.form['IF'].replace(',','.'))
+            VW = float(flask.request.form['VW'].replace(',','.'))
+            FP = float(flask.request.form['FP'].replace(',','.'))
+            
             input = [IW, IF, VW, FP]
             scaler = load('minmaxscaler.joblib')
             input_scaled = scaler.transform([input])
