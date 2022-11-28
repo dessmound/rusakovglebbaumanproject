@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпускной проект по курсу аналитик данных</title>
+    <link rel="stylesheet" href="/css/reset.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="http://195.19.40.208/theme/image.php/electron/theme_electron/1668067437/main-logo" alt="Образовательный центр МГТУ им. Н.Э. Баумана" class="logo">
+    </header>
+    <div class="description">
+        <div class="info1">
+            <h1 class="title">Выпускной проект</h1>
+            <p class="desc">Курс: Аналитик данных МГТУ им. Н.Э. Баумана</p>
+            <p class="desc">Case 3: Процесс электронно-лучевой сварки</p>
+            <p class="desc">Выполнил слушатель: Русаков Глеб Игоревич</p>
+            <p class="desc">Группа: AD11902/1</p>
+        </div>
+        <div class="info2">
+            <h1 class="title">Описание:</h1>
+            <p class="desc">Модель машинного обучения предназначена для предсказания параметров технологического процесса электронно-лучевой сварки изделия.</p>
+            <p class="desc">Модель обучалась на данных из экспериментальных исследований, проводимых в целях улучшения технологического процесса. </p>
+            <p class="desc">Обученная нейронная модель принимает на вход следующие параметры:</p>
+            <ul class="inparams">
+                <li>Величина сварочного тока</li>
+                <li>Ток фокусировки электронного пучка</li>
+                <li>Скорость сварки</li>
+                <li>Расстояние от поверхности образцов до электронно-оптической системы </li>
+            </ul>
+            <p class="desc">Прогнозируемые переменные:</p>
+            <ul class="outparams">
+                <li>Глубина шва</li>
+                <li>Ширина шва</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="prediction">
+        <form action="{{url_for('main')}}" method="POST">
+            <fieldset>
+                <legend>Введите значение:</legend>
+                <p>Величина сварочного тока:</p>
+                <input name = 'IW' required>
+                <br>
+                <p>Ток фокусировки электронного пучка:</p>
+                <input name = 'IF' required>
+                <br>
+                <p>Скорость сварки:</p>
+                <input name = 'VW' required>
+                <br>
+                <p>Расстояние от поверхности до электронно-оптической системы:</p>
+                <input name = 'FP' required>
+                <br>
+                <br>
+                <input type="submit" class="subbut">
+            </fieldset>
+        </form>
+        <div class="result" align = 'center'>
+            {% if result1 %}
+            <br>
+            <p class="predict">
+                Прогнозируемые значения:
+            </p>
+            <p class="predres">Глубина шва: {{result1}}</p>
+            <p class="predres">Ширина шва: {{result2}}</p>
+            {% endif %}
+        </div>
+    </div>
+    
+
+</body>
+</html>
